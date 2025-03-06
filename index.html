@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>health care</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icons">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" 
+    integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <section class="background">
+        <nav class="navbar">
+            <a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+            <div class="navbar-items h-class">
+                <ul class="nav v-class">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><a href="#">FEATURES</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                </ul>
+            </div>
+            <div class="burger">&#9776</div>
+        </nav>
+
+        <!-- _________main-sec -->
+        <div class="main">
+            <div class="text-box">
+                <h1>Your health is our first priority</h1>
+                <p>💖 Stay healthy, stay informed, and take control of your well-being with our Women Health Recommendation System!</p>
+                <a href="#" class="btn">Visit to know more</a>
+            </div>
+            <div class="box">
+                <h1>User Profile</h1>
+                <form action="/register" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+                    <div style="display: flex; justify-content: center; width: 200%;">
+                        <input type="text" name="name" placeholder="Name" required style="width: 80%; margin-bottom: 10px;">
+                    </div>
+                    <div style="display: flex; justify-content: center; width: 200%;">
+                        <input type="text" name="f_name" placeholder="Father's Name" required style="width: 80%; margin-bottom: 10px;">
+                    </div>
+                    <div style="display: flex; justify-content: center; width: 200%;">
+                        <input type="email" name="email" placeholder="Email" required style="width: 80%; margin-bottom: 10px;">
+                    </div>
+                    <div style="display: flex; justify-content: center; width: 200%;">
+                        <input type="number" name="number" placeholder="Number" required style="width: 80%; margin-bottom: 10px;">
+                    </div>
+                    <br>
+                    <div style="display: flex; justify-content: center; width: 100%;">
+                        <button type="submit" class="btn btn2" style="width: 100%;">Register</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <br>
+        
+    <!-- ____________services -->
+    
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        
+    h2 {
+      text-align: center;
+      margin-top: 20vh; /* Pushes the heading down a bit */
+      font-size: 2rem;
+    }
+  
+        .services-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 20px;
+          padding: 20px;
+        }
+        .service-card {
+          background-color: #3498db;
+          color: white;
+          width: 300px;
+          height: 180px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .service-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .service-popup {
+          display: none;
+          position: fixed;
+          top: 10%;
+          left: 20%;
+          width: 60%;
+          background-color: #ecf0f1;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          z-index: 1000;
+        }
+        .close-btn {
+          float: right;
+          cursor: pointer;
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .tip {
+          background-color: #f1c40f;
+          padding: 10px;
+          margin-top: 10px;
+          border-radius: 5px;
+        }
+        .contact-container {
+          margin-top: 40px;
+          padding: 20px;
+          background-color: #ecf0f1;
+          width: 100%;
+          text-align: center;
+        }
+        .contact-info {
+          font-size: 18px;
+        }
+      </style>
+    </head>
+    <body>
+      <h2>Our Services</h2>
+      <div class="services-container">
+        <div class="service-card" onclick="showPopup('health')">
+          <strong>Women's Health Plan Generator</strong>
+        </div>
+        <div class="service-card" onclick="showPopup('fitness')">
+          <strong>Fitness Plan Generator</strong>
+        </div>
+        <div class="service-card" onclick="showPopup('symptom')">
+          <strong>Symptom Checker</strong>
+        </div>
+        <div class="service-card" onclick="showPopup('menstrual')">
+          <strong>Menstrual Cycle Tracker</strong>
+        </div>
+        <div class="service-card" onclick="showPopup('disease')">
+          <strong>Disease & Medicine Suggester</strong>
+        </div>
+        <div class="service-card" onclick="showPopup('contact')">
+          <strong>Contact and Support</strong>
+        </div>
+      </div>
+    
+      <div id="service-popup" class="service-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h3 id="popup-title"></h3>
+        <div id="popup-content"></div>
+        <div id="tip-container"></div>
+      </div>
+    
+      <script>
+        // Function to show the popup for the selected service
+        function showPopup(service) {
+          const popupTitle = document.getElementById('popup-title');
+          const popupContent = document.getElementById('popup-content');
+          const tipContainer = document.getElementById('tip-container');
+          tipContainer.innerHTML = ''; // Clear any previous tips
+    
+          // Reset popup content based on selected service
+          if (service === 'health') {
+            popupTitle.innerText = "Women's Health Plan Generator";
+            popupContent.innerHTML = `
+              <p>Select a women's health issue:</p>
+              <select id="health-issue" onchange="showHealthPlan()">
+                <option value="">-- Select --</option>
+                <option value="pcos">PCOS (Polycystic Ovary Syndrome)</option>
+                <option value="irregular">Menstrual Irregularities</option>
+                <option value="pregnancy">Pregnancy</option>
+                <option value="breastCancer">Breast Cancer</option>
+                <option value="menopause">Menopause</option>
+                <option value="osteoporosis">Osteoporosis</option>
+              </select>
+              <p>Select your age range:</p>
+              <select id="age-range" onchange="showHealthPlan()">
+                <option value="">-- Select --</option>
+                <option value="20-30">20-30</option>
+                <option value="30-40">30-40</option>
+                <option value="40-50">40-50</option>
+                <option value="50+">50+</option>
+              </select>
+              <p id="health-plan-info"></p>
+            `;
+            
+            tipContainer.innerHTML = `<div class="tip">Tip: Choose a health issue and age range for personalized advice.</div>`;
+          } 
+          else if (service === 'fitness') {
+            popupTitle.innerText = "Fitness Plan Generator";
+            popupContent.innerHTML = `
+              <p>Select your fitness level:</p>
+              <select id="fitness-level" onchange="showFitnessPlan()">
+                <option value="">-- Select --</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="pregnancy">Pregnancy-Friendly</option>
+                <option value="postpartum">Postpartum</option>
+                <option value="flexibility">Flexibility Focused</option>
+              </select>
+              <p>Select your workout type:</p>
+              <select id="workout-type" onchange="showFitnessPlan()">
+                <option value="">-- Select --</option>
+                <option value="strength">Strength Training</option>
+                <option value="cardio">Cardio</option>
+                <option value="endurance">Endurance</option>
+                <option value="stretching">Stretching</option>
+                <option value="yoga">Yoga</option>
+                <option value="pilates">Pilates</option>
+              </select>
+              <p id="fitness-plan-info"></p>
+            `;
+            
+            tipContainer.innerHTML = `<div class="tip">Tip: Choose a fitness level and workout type to get the most suitable plan.</div>`;
+          }
+          else if (service === 'symptom') {
+            popupTitle.innerText = "Symptom Checker";
+            popupContent.innerHTML = `
+              <p>Select a symptom:</p>
+              <select id="symptom" onchange="showSymptomInfo()">
+                <option value="">-- Select --</option>
+                <option value="headache">Headache</option>
+                <option value="fatigue">Fatigue</option>
+                <option value="nausea">Nausea</option>
+                <option value="dizziness">Dizziness</option>
+                <option value="chestPain">Chest Pain</option>
+                <option value="abdominalPain">Abdominal Pain</option>
+              </select>
+              <p id="symptom-info"></p>
+            `;
+          }
+          else if (service === 'menstrual') {
+            popupTitle.innerText = "Menstrual Cycle Tracker";
+            popupContent.innerHTML = `
+              <label>Last period date:</label>
+              <input type="date" id="last-period" onchange="calculateNextPeriod()">
+              <p id="cycle-info"></p>
+              <p>Select the length of your menstrual cycle:</p>
+              <select id="cycle-length" onchange="updateCycleLength()">
+                <option value="">-- Select --</option>
+                <option value="28">28 days</option>
+                <option value="30">30 days</option>
+                <option value="32">32 days</option>
+                <option value="34">34 days</option>
+                <option value="36">36 days</option>
+                <option value="40">40 days</option>
+              </select>
+            `;
+          }
+          else if (service === 'disease') {
+            popupTitle.innerText = "Disease & Medicine Suggester";
+            popupContent.innerHTML = `
+              <p>Select a health issue to get disease and medicine suggestions:</p>
+              <select id="disease" onchange="suggestDiseaseAndMedicine()">
+                <option value="">-- Select --</option>
+                <option value="pcos">PCOS (Polycystic Ovary Syndrome)</option>
+                <option value="irregular">Menstrual Irregularities</option>
+                <option value="pregnancy">Pregnancy</option>
+                <option value="breastCancer">Breast Cancer</option>
+                <option value="osteoporosis">Osteoporosis</option>
+                <option value="thyroid">Thyroid Disorders</option>
+              </select>
+              <p id="disease-info"></p>
+            `;
+            
+            tipContainer.innerHTML = `<div class="tip">Tip: Select a disease to get medication recommendations.</div>`;
+          }
+          else if (service === 'contact') {
+            popupTitle.innerText = "Contact and Support";
+            popupContent.innerHTML = `
+              <p>If you need assistance, feel free to contact us:</p>
+              <ul>
+                <li>Email: support@womenhealth.com</li>
+                <li>Phone: +123 456 7890</li>
+                <li>We offer 24/7 support for all your queries.</li>
+              </ul>
+            `;
+          }
+          document.getElementById('service-popup').style.display = 'block';
+        }
+    
+        // Show Health Plan based on selection
+        function showHealthPlan() {
+          const issue = document.getElementById('health-issue').value;
+          const ageRange = document.getElementById('age-range').value;
+          const healthPlanInfo = document.getElementById('health-plan-info');
+          
+          if (issue && ageRange) {
+            healthPlanInfo.innerHTML = `
+              <ul>
+                <li>Health advice based on ${issue} for age group ${ageRange}.</li>
+                <li>Possible lifestyle modifications to manage ${issue}.</li>
+                <li>Suggested diet and exercises for managing ${issue}.</li>
+              </ul>`;
+          }
+        }
+    
+        // Show Fitness Plan based on selection
+        function showFitnessPlan() {
+          const level = document.getElementById('fitness-level').value;
+          const workoutType = document.getElementById('workout-type').value;
+          const fitnessPlanInfo = document.getElementById('fitness-plan-info');
+    
+          if (level && workoutType) {
+            fitnessPlanInfo.innerHTML = `
+              <ul>
+                <li>Fitness plan for ${level} level focusing on ${workoutType}.</li>
+                <li>Suggested workout duration and intensity for your level.</li>
+                <li>Additional tips for improving your fitness level.</li>
+              </ul>`;
+          }
+        }
+    
+        // Show Symptom Information
+        function showSymptomInfo() {
+          const symptom = document.getElementById('symptom').value;
+          const symptomInfo = document.getElementById('symptom-info');
+    
+          if (symptom) {
+            symptomInfo.innerHTML = `
+              <ul>
+                <li>Possible causes of ${symptom}.</li>
+                <li>Common treatments for ${symptom}.</li>
+                <li>When to see a doctor for ${symptom}.</li>
+              </ul>`;
+          }
+        }
+    
+        // Menstrual Cycle Calculation
+        function calculateNextPeriod() {
+          const lastPeriod = document.getElementById('last-period').value;
+          const cycleLength = document.getElementById('cycle-length').value;
+          const cycleInfo = document.getElementById('cycle-info');
+          
+          if (lastPeriod && cycleLength) {
+            const lastDate = new Date(lastPeriod);
+            lastDate.setDate(lastDate.getDate() + parseInt(cycleLength));
+            cycleInfo.innerHTML = `
+              <p>Your next period is expected on: ${lastDate.toDateString()}</p>
+            `;
+          }
+        }
+    
+        // Update Menstrual Cycle Length
+        function updateCycleLength() {
+          const cycleLength = document.getElementById('cycle-length').value;
+          calculateNextPeriod();
+        }
+    
+        // Suggest Disease and Medicine Information
+        function suggestDiseaseAndMedicine() {
+          const disease = document.getElementById('disease').value;
+          const diseaseInfo = document.getElementById('disease-info');
+          
+          if (disease) {
+            diseaseInfo.innerHTML = `
+              <ul>
+                <li>Suggested medicines and treatments for ${disease}.</li>
+                <li>Possible lifestyle changes to manage ${disease}.</li>
+                <li>When to seek further medical advice for ${disease}.</li>
+              </ul>`;
+          }
+        }
+    
+        // Close the popup
+        function closePopup() {
+          document.getElementById('service-popup').style.display = 'none';
+        }
+      </script>
+    </body>
+    </html>
+    
+<!--quality -->
+    <section class="quality">
+        <h1 class="heading">why choose our healthcare clinic</h1>
+        <div class="row">
+            <div class="box2">
+                <i class="fas fa-user-plus"></i>
+                <h2>24/7 Available</h2>
+                <p>We are always here to assist you anytime, anywhere.</p>
+            </div>
+            <div class="box2">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h2>Medical Cycle Care</h2>
+                <p>Track and manage your menstrual cycle with ease.</p>
+            </div>
+            <div class="box2">
+                <i class="fas fa-award"></i>
+                <h2>Quality Control</h2>
+                <p>Ensuring the highest standards for your health and wellness.</p>
+            </div>
+            
+    </section>
+    <!-- _______________about -->
+    <section class="about">
+        <h1 class="heading">about us</h1>
+        <div class="row row1">
+            <div class="left">
+                <img src="img/pic2.jpg" alt="">
+            </div>
+            <div class="right">
+                <h1>inspiring hope, <br>innovating health</h1>
+                <p>💖 Stay healthy, stay informed, and take control of your well-being with our Women Health Recommendation System!</p>
+                <button class="btn btn3">explore more</button>
+            </div>
+        </div>
+    </section>
+    <!-- ___________departments -->
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Features</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .department {
+      text-align: center;
+      padding: 50px;
+      background: #f9f9f9;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .box3 {
+      width: 250px;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .box3:hover {
+      transform: scale(1.05);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<section class="department">
+  <h1 class="heading" style="font-size: 2.5rem; margin-bottom: 30px;">Our Features</h1>
+  <div class="row">
+
+    <div class="box3" onclick="openModal('videoModal')">
+      <h1 style="font-size: 1.5rem;">Health Video Tutorials</h1>
+    </div>
+
+    <div class="box3" onclick="openModal('feedbackModal')">
+      <h1 style="font-size: 1.5rem;">Feedback Form</h1>
+    </div>
+
+    <div class="box3" onclick="openModal('faqModal')">
+      <h1 style="font-size: 1.5rem;">FAQ Section</h1>
+    </div>
+
+    <div class="box3" onclick="openModal('doctorConsultanceModal')">
+      <h1 style="font-size: 1.5rem;">Doctor Consultance</h1>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modals -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('videoModal')">&times;</span>
+    <h2>Health Video Tutorials</h2>
+    <a href="https://youtu.be/1NEBL7deSHk?si=IcQ2w2I24ag5Ol48" target="_blank">Hormonal Balance</a><br>
+    <a href="https://youtu.be/8vtsuqRhxjQ?si=LM6GIaEISSFQueCR" target="_blank">PCOS</a><br>
+    <a href="https://youtu.be/SSC12rZdU6M?si=kot3doLy63ROtWK4" target="_blank">Irregular Periods</a>
+  </div>
+</div>
+
+<div id="feedbackModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('feedbackModal')">&times;</span>
+    <h2>Feedback Form</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required style="width: 100%; padding: 10px; margin: 8px 0;">
+      <input type="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin: 8px 0;">
+      <textarea placeholder="Your Feedback" required style="width: 100%; padding: 10px; margin: 8px 0;"></textarea>
+      <button type="submit" style="width: 100%; padding: 12px; background-color: #4CAF50; color: white; border: none;">Submit Feedback</button>
+    </form>
+  </div>
+</div>
+
+<div id="faqModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('faqModal')">&times;</span>
+    <h2>FAQ Section</h2>
+    <h3>1. How does the system work?</h3>
+    <p>The system offers personalized health recommendations based on your data and needs.</p>
+    <h3>2. Can I track my menstrual cycle?</h3>
+    <p>Yes, the system includes a menstrual cycle tracker with predictions and symptom management.</p>
+    <h3>3. Is it suitable for all ages?</h3>
+    <p>Yes, it works for women of all ages and stages of life.</p>
+    <h3>4. What fitness advice is provided?</h3>
+    <p>Personalized exercise plans based on your goals and fitness level.</p>
+  </div>
+</div>
+
+<div id="doctorConsultanceModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('doctorConsultanceModal')">&times;</span>
+    <h2>Doctor Consultance</h2>
+    <p>Get expert medical advice from certified professionals. Schedule your consultation today!</p>
+  </div>
+</div>
+
+<!-- JavaScript for Modal -->
+<script>
+  function openModal(id) {
+    document.getElementById(id).style.display = 'flex';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+<body>
+      
+<footer>
+    <div class="footer-sec">
+        <div class="sec">
+            <div class="f_box">
+                <h2>contact</h2>
+                <p>email</p>
+                <p>youtube</p>
+                <p>facebook</p>
+                <p>twitter</p>
+            </div>
+            <div class="f_box">
+                <h2>departments</h2>
+                <p>radiology</p>
+                <p>pharmocology</p>
+                <p>pathology</p>
+                <p>anatomy</p>
+            </div>
+        </div>
+
+        <div class="sec">
+            <div class="f_box">
+                <h2>address</h2>
+                <p>near garden town lahore,<br> block 4</p>
+                <p>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-snapchat"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </p>
+            </div>
+            <div class="f_box">
+                <h2>other facilities</h2>
+                <p>24/7 services</p>
+                <p>quality control</p>
+                <p>full cycle medical care</p>
+            </div>
+        </div>
+    </div>
+    <p class="para">copyright @ AnnaCodingCorner</p>
+</footer>
+<script src="index.js"></script>
+</body>
+</html>
